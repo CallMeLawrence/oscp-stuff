@@ -1,0 +1,11 @@
+POP3 connections with nc
+
+nc -n -v 10.10.11.2 110
+
+* you'll know you're in when you see something like...
++ OK, <100001.2345@localhost>, POP3 Server Ready
+
+USER <username>
+
+PASS <password>
+
