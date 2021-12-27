@@ -1,0 +1,12 @@
+### Meterpreter ### 
+# definitely a good tool to use professionally, anyone who trys to sell you that pentesters don't use frameworks and do everything manually is full of shit
+
+#### add a port forward ####
+
+# set up route to newly discovered subnet
+msf> run autoroute -s 10.4.16.0/23
+
+# set up port forward
+msf> portfwd add -l 1234 10.4.7.27 80
+
+# to translate ... create a portforward, using local port 1234, for the destination host or 10.4.7.27 with destination port 80
