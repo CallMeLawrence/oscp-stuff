@@ -1,6 +1,0 @@
-# A good place to start; you'll need to figure out where you are and what is around you
-
-
-# scan the surroundings in your subnet 
-nmap -sn X.X.X.X/YY 
-
