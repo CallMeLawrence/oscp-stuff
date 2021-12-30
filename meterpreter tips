@@ -7,6 +7,6 @@
 msf> run autoroute -s 10.4.16.0/23
 
 # set up port forward
-msf> portfwd add -l 1234 10.4.7.27 80
+msf> portfwd add -l 1234 -p 80 -r 10.4.7.27
 
-# to translate ... create a portforward, using local port 1234, for the destination host or 10.4.7.27 with destination port 80
+# to translate ... create a portforward, using local port 1234, for the destination port 80 at remote host 10.4.7.27  
