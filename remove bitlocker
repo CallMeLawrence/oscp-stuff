@@ -1,0 +1,12 @@
+# Searching BitLocker file in an Administrator’s user files.
+Command: CTRL + C
+msf> search -d C:\\Users\\Administrator -f *Bit*
+    -- OR -- 
+cmd> where /R C:\ *Bitlocker*
+
+# Read the BitLocker file
+Command: type 'C:\\Users\\Administrator\\Documents\\Personal Data\\BitLocker'
+
+# Unlock the drive using the recovery key.
+Command: cmd>  manage-bde -unlock d: -rp 376695-162998-720247-470206-443135-330396-570394-000693
+
