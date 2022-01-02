@@ -1,0 +1,11 @@
+<script language="VBScript">
+  Function DoStuff()
+    Dim wsh
+    Set wsh = CrateObject("WScript.Shell")
+    wsh.run "<powershell command(s) here>"
+    Set wsh = Nothing
+  End Function
+
+DoStuff
+self.close
+</script>
