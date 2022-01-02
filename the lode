@@ -24,7 +24,9 @@ Windows PrivEsc Mapping
 		smbup
 		
 		# bring up an SMB share to host files
-		impacket-smbserver share .
+		impacket-smbserver share . -smb2support
+			-- OR --
+		impacket-smbserver share .                     # may error
 		
 		# print up an HTTP server to host files
 		python3 -m http.server 80
