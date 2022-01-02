@@ -1,7 +1,7 @@
 <script language="VBScript">
   Function DoStuff()
     Dim wsh
-    Set wsh = CrateObject("WScript.Shell")
+    Set wsh = CreateObject("WScript.Shell")
     wsh.run "<powershell command(s) here>"
     Set wsh = Nothing
   End Function
